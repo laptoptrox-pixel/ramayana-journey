@@ -122,11 +122,11 @@ Keep the response structured, clear, and under 220 words. If the question is com
         max_tokens: 400
       };
     } else if (key.startsWith("sk-or-")) {
-      // OpenRouter Key (100% Free models like Ling-3.0)
+      // OpenRouter Key (calling openai/gpt-4o model)
       url = "https://openrouter.ai/api/v1/chat/completions";
       headers["Authorization"] = `Bearer ${key}`;
       body = {
-        model: "inclusionai/ling-3.0-flash:free",
+        model: "openai/gpt-4o",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: query }
