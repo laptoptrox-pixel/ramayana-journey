@@ -43,11 +43,11 @@ body {
   right: -5%;
   width: 45%;
   height: 85vh;
-  background-image: url('rama_bow.jpg');
+  background-image: url('/rama_bow.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom right;
-  opacity: 0.055; /* Extremely subtle, transparent watermark */
+  opacity: 0.12; /* Increased opacity for clear visibility */
   pointer-events: none; /* Click-through */
   z-index: -2; /* Behind the content panels */
   filter: drop-shadow(0 0 20px var(--gold-glow)) grayscale(0.2); /* Saffron-gold glow silhouette overlay */
@@ -58,11 +58,11 @@ body {
 @keyframes slowFloatWatermark {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 0.045;
+    opacity: 0.09;
   }
   100% {
     transform: translateY(-15px) scale(1.03);
-    opacity: 0.065;
+    opacity: 0.14;
   }
 }
 
@@ -1881,6 +1881,6 @@ body::before {
     width: 80% !important;
     height: 55vh !important;
     right: -10% !important;
-    opacity: 0.035 !important;
+    opacity: 0.08 !important;
   }
 }
