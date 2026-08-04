@@ -36,6 +36,36 @@ body {
   line-height: 1.6;
 }
 
+/* Transparent Celestial Background Watermark of Sri Rama with Bow */
+.rama-watermark-bg {
+  position: fixed;
+  bottom: 0;
+  right: -5%;
+  width: 45%;
+  height: 85vh;
+  background-image: url('rama_bow.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+  opacity: 0.055; /* Extremely subtle, transparent watermark */
+  pointer-events: none; /* Click-through */
+  z-index: -2; /* Behind the content panels */
+  filter: drop-shadow(0 0 20px var(--gold-glow)) grayscale(0.2); /* Saffron-gold glow silhouette overlay */
+  mix-blend-mode: lighten;
+  animation: slowFloatWatermark 25s ease-in-out infinite alternate;
+}
+
+@keyframes slowFloatWatermark {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.045;
+  }
+  100% {
+    transform: translateY(-15px) scale(1.03);
+    opacity: 0.065;
+  }
+}
+
 /* Scrollbar customization */
 ::-webkit-scrollbar {
   width: 6px;
@@ -1844,5 +1874,13 @@ body::before {
     bottom: 15px;
     right: 15px;
     transform: scale(0.85);
+  }
+
+  /* 11. Mobile watermark scaling */
+  .rama-watermark-bg {
+    width: 80% !important;
+    height: 55vh !important;
+    right: -10% !important;
+    opacity: 0.035 !important;
   }
 }
