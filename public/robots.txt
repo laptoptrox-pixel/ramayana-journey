@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Specifically allow AI search crawlers for GEO search discovery
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: Gemini-Crawler
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.sanatana360.com/sitemap.xml
