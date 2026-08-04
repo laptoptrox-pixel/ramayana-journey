@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Rama Journey - A Ramayana Wisdom Portal</title>
+  <meta name="description" content="Explore the ancient epic Ramayana. Follow Sri Rama's path of Dharma, learn Sanskrit slokas, engage with Sage Valmiki's AI chatbot, and build your own character journal.">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- Cinematic Celestial Top Header Navigation -->
+    <header class="cinematic-header">
+      <div class="logo-area">
+        <span class="logo-wheel">☸</span>
+        <h1 class="logo-text title-font">Sri Rama Journey</h1>
+      </div>
+      
+      <nav class="celestial-nav">
+        <ul class="nav-menu horizontal">
+          <li class="nav-item">
+            <a class="nav-link active" data-tab="journey-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Rama's Path</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="chat-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>AI Sage Valmiki</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="slokas-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3a2.5 2.5 0 0 1 2.5-2.5H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/></svg>
+              <span>Slokas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="codex-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Virtue Codex</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="journal-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Journal</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="media-tab">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+              <span>Media Pavilion</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-tab="kids-tab" style="border-color: rgba(255, 215, 0, 0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span style="color: var(--gold-glow); font-weight: bold;">Kids Corner</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="header-altar-badge">
+        <span id="altar-user-badge" style="font-size: 0.72rem; font-weight: 700; color: var(--gold-glow); text-transform: uppercase; letter-spacing: 0.5px; display: none;">Altar: Guest</span>
+      </div>
+    </header>
+
+    <!-- Main View Section -->
+    <main id="main-content">
+      
+      <!-- TAB 1: RAMA'S PATH (JOURNEY MAP) -->
+      <section id="journey-tab" class="view-section active">
+        <header class="glass-card">
+          <h2 class="section-title">The Path of Sri Rama</h2>
+          <p class="section-desc">Trace the sacred map tracing Rama's footsteps from Ayodhya to Lanka. Click on any active marker node on the map to explore the chapter's lore, characters, and interactive meditations.</p>
+          
+          <!-- Wisdom of the Day Card -->
+          <div class="dharma-quote-card" style="margin-top: 1.25rem; padding: 1rem; background: rgba(255, 140, 0, 0.04); border-left: 4px solid var(--primary-saffron); border-radius: 4px; display: flex; flex-direction: column; gap: 0.25rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--gold-glow); letter-spacing: 1px;">Daily Dharma Blessing</span>
+            <p id="daily-dharma-quote-text" style="font-style: italic; font-size: 0.9rem; color: var(--text-white); line-height: 1.4;">"Do not fear the path of duty, my child, for Dharma protects those who protect it."</p>
+          </div>
+        </header>
+
+        <!-- Chapter Badges Timeline Bar -->
+        <div id="kanda-badges-nav" class="kanda-badges-nav"></div>
+
+        <!-- Trail Progress Bar -->
+        <div class="trail-progress-container glass-card" style="margin: 1rem 0; padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; border-color: rgba(255, 215, 0, 0.15);">
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: bold; color: var(--gold-glow); letter-spacing: 0.5px;">
+            <span>RAMA'S EXILE TRAIL PROGRESS</span>
+            <span id="trail-progress-text">0% Completed (0 / 7 Kandas Reflected)</span>
+          </div>
+          <div style="position: relative; width: 100%; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);">
+            <div id="trail-progress-fill" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--primary-saffron), var(--gold-glow)); border-radius: 5px; transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+          </div>
+        </div>
+
+        <div class="journey-layout">
+          <!-- Interactive map rendering -->
+          <div class="glass-card map-container">
+            <!-- Floating embers/particles overlay -->
+            <div class="map-embers-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 5;">
+              <div class="ember e1"></div>
+              <div class="ember e2"></div>
+              <div class="ember e3"></div>
+              <div class="ember e4"></div>
+              <div class="ember e5"></div>
+              <div class="ember e6"></div>
+            </div>
+            
+            <svg class="map-svg" viewBox="0 0 500 750">
+              <!-- Google Maps Style Ocean Background -->
+              <rect width="500" height="750" fill="#0d1424" rx="8" />
+              
+              <!-- India Landmass Outline -->
+              <path d="M 80,120 C 120,100 180,60 220,50 C 260,40 320,50 380,80 C 420,100 460,90 470,120 C 480,150 490,200 460,240 C 440,260 420,280 400,320 C 370,380 340,430 310,480 C 290,510 280,540 270,560 C 260,540 240,510 220,480 C 190,440 170,400 150,360 C 130,320 100,280 80,260 C 60,240 50,210 60,180 C 70,150 70,130 80,120 Z" fill="#1b263b" stroke="rgba(255, 215, 0, 0.15)" stroke-width="1.5" />
+              
+              <!-- Sri Lanka Landmass Outline -->
+              <path d="M 270,610 C 280,590 300,600 305,620 C 310,640 295,660 280,670 C 265,660 260,630 270,610 Z" fill="#1b263b" stroke="rgba(255, 215, 0, 0.15)" stroke-width="1.5" />
+              
+              <!-- Ancient Cartography Nautical Grids -->
+              <circle cx="250" cy="375" r="160" stroke="rgba(255, 215, 0, 0.04)" stroke-width="1.5" fill="none" stroke-dasharray="8 8" />
+              <circle cx="250" cy="375" r="280" stroke="rgba(255, 215, 0, 0.02)" stroke-width="1" fill="none" stroke-dasharray="15 15" />
+              <line x1="250" y1="20" x2="250" y2="730" stroke="rgba(255, 215, 0, 0.03)" stroke-width="1" />
+              <line x1="20" y1="375" x2="480" y2="375" stroke="rgba(255, 215, 0, 0.03)" stroke-width="1" />
+              
+              <!-- Draw Complete Journey Lines -->
+              <path class="map-path-bg" d="M 190,150 L 400,140 L 190,150 L 230,220 L 260,310 L 240,440 L 270,550 L 280,640 Z" />
+              <path id="active-journey-trail" class="map-path-active" d="M 190,150 L 400,140 L 190,150 L 230,220 L 260,310 L 240,440 L 270,550 L 280,640 Z" />
+              
+              <!-- Map Coordinate Nodes -->
+              <!-- 1. Ayodhya -->
+              <g class="map-node" data-kanda="bala" transform="translate(190, 150)">
+                <circle class="node-pulse" r="10" fill="#ff8c00" opacity="0.4"/>
+                <circle r="6" fill="#ff8c00" stroke="#ffd700" stroke-width="2"/>
+                <text y="-14" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="middle">Ayodhya</text>
+              </g>
+
+              <!-- 2. Mithila -->
+              <g class="map-node" data-kanda="bala" transform="translate(400, 140)">
+                <circle class="node-pulse" r="10" fill="#ff8c00" opacity="0.4"/>
+                <circle r="6" fill="#ff8c00" stroke="#ffd700" stroke-width="2"/>
+                <text y="-14" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="middle">Mithila</text>
+              </g>
+
+              <!-- 3. Chitrakoot -->
+              <g class="map-node" data-kanda="ayodhya" transform="translate(230, 220)">
+                <circle class="node-pulse" r="10" fill="#e65c00" opacity="0.4"/>
+                <circle r="6" fill="#e65c00" stroke="#ffd700" stroke-width="2"/>
+                <text x="14" y="4" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="start">Chitrakoot</text>
+              </g>
+
+              <!-- 4. Panchavati -->
+              <g class="map-node" data-kanda="aranya" transform="translate(260, 310)">
+                <circle class="node-pulse" r="10" fill="#cc0000" opacity="0.4"/>
+                <circle r="6" fill="#cc0000" stroke="#ffd700" stroke-width="2"/>
+                <text x="14" y="4" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="start">Panchavati</text>
+              </g>
+
+              <!-- 5. Kishkindha -->
+              <g class="map-node" data-kanda="kishkindha" transform="translate(240, 440)">
+                <circle class="node-pulse" r="10" fill="#d4af37" opacity="0.4"/>
+                <circle r="6" fill="#d4af37" stroke="#ffd700" stroke-width="2"/>
+                <text x="-14" y="4" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="end">Kishkindha</text>
+              </g>
+
+              <!-- 6. Rameshwaram -->
+              <g class="map-node" data-kanda="sundara" transform="translate(270, 550)">
+                <circle class="node-pulse" r="10" fill="#ff4500" opacity="0.4"/>
+                <circle r="6" fill="#ff4500" stroke="#ffd700" stroke-width="2"/>
+                <text x="-14" y="4" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="end">Rameshwaram</text>
+              </g>
+
+              <!-- 7. Lanka -->
+              <g class="map-node" data-kanda="yuddha" transform="translate(280, 640)">
+                <circle class="node-pulse" r="10" fill="#990000" opacity="0.4"/>
+                <circle r="6" fill="#990000" stroke="#ffd700" stroke-width="2"/>
+                <text y="18" fill="#ffd700" font-size="10" font-family="Cinzel" font-weight="bold" text-anchor="middle">Lanka</text>
+              </g>
+
+              <!-- Dynamic Traveler Marker (chariot/avatar) -->
+              <g id="map-traveler" style="transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 10; transform: translate(190px, 150px);">
+                <!-- Pulsing outer ring -->
+                <circle r="12" fill="none" stroke="var(--gold-glow)" stroke-width="1.5" class="node-pulse" style="animation-duration: 1.5s;" />
+                <!-- Solid inner bead -->
+                <circle r="5.5" fill="var(--primary-saffron)" stroke="var(--gold-glow)" stroke-width="1.5" />
+                <!-- Text label -->
+                <text y="20" fill="var(--gold-glow)" font-size="8.5" font-family="Cinzel" font-weight="bold" text-anchor="middle" style="letter-spacing: 0.5px; text-shadow: 0 0 5px #000;">RAMA 🏹</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Dynamic Side View Chapter Details Card -->
+          <div class="glass-card" id="journey-details-panel">
+            <!-- Filled dynamically by app.js -->
+            <div class="locked-msg">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <h3>Explore Rama's Steps</h3>
+              <p>Click on any marker on the map to begin reading chapter chronicles and testing your alignment with Rama's virtues.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: AI SAGE CHAT -->
+      <section id="chat-tab" class="view-section">
+        <header class="glass-card">
+          <h2 class="section-title">Valmiki's Wisdom Altar</h2>
+          <p class="section-desc">Seek guidance from Sage Valmiki on morals, character building, stories, and the meaning of Sanskrit values in the Ramayana.</p>
+        </header>
+
+        <div class="chat-layout glass-card">
+          <!-- API key toggler -->
+          <div class="api-config-bar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span style="font-size: 0.8rem; font-weight: 600;">Gemini API Link:</span>
+            <input type="password" id="gemini-key-input" placeholder="Enter Gemini API Key to enable infinite AI conversations (Stored locally)">
+            <button id="save-key-btn" class="suggested-btn" style="border-radius: 4px; padding: 0.35rem 0.75rem;">Save Key</button>
+          </div>
+
+          <!-- Chat History -->
+          <div class="chat-history" id="chat-messages-container">
+            <div class="chat-message sage">
+              <p class="sage-name">Sage Valmiki</p>
+              <p>Welcome, noble seeker! I am Valmiki, the writer of Ramayana. I saw the transformation of human spirit from ordinary to divine. What is it that you wish to uncover in the saga of Sri Rama today?</p>
+            </div>
+          </div>
+
+          <!-- Suggested Quick prompts -->
+          <div class="chat-suggested-queries">
+            <button class="suggested-btn" data-query="What is Dharma and how can I practice it?">Understand Dharma</button>
+            <button class="suggested-btn" data-query="Explain Ravana's ten heads and ego.">Ravana's Fall</button>
+            <button class="suggested-btn" data-query="How did Sita demonstrate resilience?">Resilience of Sita</button>
+            <button class="suggested-btn" data-query="Tell me the significance of the Golden Deer.">Avoid Temptations</button>
+          </div>
+
+          <!-- Input Controls -->
+          <div class="chat-input-bar">
+            <input type="text" id="chat-user-input" class="chat-input" placeholder="Ask Valmiki about any character, story, sloka, or modern moral dilemma...">
+            <button id="chat-send-btn" class="chat-submit-btn">Seek Wisdom</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: SLOKA SANCTUARY -->
+      <section id="slokas-tab" class="view-section">
+        <header class="glass-card">
+          <h2 class="section-title">Sloka Sanctuary</h2>
+          <p class="section-desc">Meditate on selected Sanskrit verses from the Valmiki Ramayana. Listen to their spiritual chanting and understand their meaning to transform your habits.</p>
+        </header>
+
+        <div class="slokas-grid" id="slokas-list-container">
+          <!-- Filled dynamically by app.js -->
+        </div>
+      </section>
+
+      <!-- TAB 4: VIRTUE CODEX -->
+      <section id="codex-tab" class="view-section">
+        <header class="glass-card">
+          <h2 class="section-title">The Virtue Codex</h2>
+          <p class="section-desc">Explore the primary characters of the Ramayana. Click on any card to flip it in 3D and study their core values, divine symbols, and modern moral guidelines.</p>
+        </header>
+
+        <div class="codex-grid" id="codex-cards-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <!-- Filled dynamically by app.js -->
+        </div>
+      </section>
+
+      <!-- TAB 4: DHARMA JOURNAL -->
+      <section id="journal-tab" class="view-section">
+        <header class="glass-card">
+          <h2 class="section-title">Dharma reflection Journal</h2>
+          <p class="section-desc">Translate Sri Rama's lessons into your daily actions. Select a chapter, read the reflection prompt, write down your thoughts, and track your self-alignment score.</p>
+        </header>
+
+        <div class="journal-layout">
+          <!-- Form Section -->
+          <div class="glass-card">
+            <form id="journal-reflection-form" class="journal-form" onsubmit="event.preventDefault();">
+              <div>
+                <label style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">1. Choose Chapter</label>
+                <select id="journal-kanda-select" class="select-kanda-dropdown" style="width: 100%;">
+                  <!-- Populated by app.js -->
+                </select>
+              </div>
+
+              <div>
+                <label style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">2. Reflection Prompt</label>
+                <p id="journal-prompt-text" style="font-style: italic; font-size: 0.95rem; color: var(--text-muted); background: rgba(255,255,255,0.02); padding: 0.85rem; border-radius: 6px; border-left: 3px solid var(--primary-saffron); margin-bottom: 1rem;">
+                  Select a chapter above to display a prompt.
+                </p>
+                <textarea id="journal-reflection-text" class="journal-textarea" placeholder="Reflect on your life events, challenges, and decisions. How can you apply this Ramayana lesson to align with truth and duty? (Minimum 10 characters to unlock points)"></textarea>
+              </div>
+
+              <div class="rating-scale">
+                <span class="rating-label">3. Self-Assessment of this Virtue Alignment (1 - Needs Growth, 5 - Fully Aligned)</span>
+                <div class="rating-slider-container">
+                  <input type="range" id="journal-rating-slider" class="rating-slider" min="1" max="5" step="1" value="3">
+                  <span id="journal-rating-val" class="rating-val">3</span>
+                </div>
+              </div>
+
+              <button type="button" id="save-journal-btn" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Reflection & Unlock Score</span>
+              </button>
+            </form>
+          </div>
+          <!-- Right Column (Audit & Quiz) -->
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <!-- Virtue Score Audit Section -->
+            <div class="glass-card audit-container" style="margin-bottom: 0;">
+              <h3 class="audit-card-title title-font glow-text">Dharma Virtue Balance</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Writing reflections raises your self-alignment score in the virtues.</p>
+              
+              <div id="virtues-progress-bars">
+                <!-- Rendered dynamically by app.js -->
+              </div>
+
+              <div class="report-actions">
+                <button id="download-report-btn" class="btn-primary" style="flex-grow: 1;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Download Wisdom Report</span>
+                </button>
+                <button id="reset-journal-btn" class="btn-secondary">Reset</button>
+              </div>
+            </div>
+
+            <!-- Weapon of Virtues Personality Quiz Section -->
+            <div class="glass-card quiz-container" style="border-color: rgba(255, 215, 0, 0.25); display: flex; flex-direction: column; gap: 1rem;">
+              <h3 class="title-font" style="color: #ff8c00; font-size: 1.25rem; margin: 0; text-align: center;">🏹 Weapon of Virtues Quiz</h3>
+              <p style="font-size: 0.8rem; text-align: center; color: var(--text-muted); margin: 0;">Discover your spiritual archetype. Shoot the arrow of choice to reveal your virtue weapon!</p>
+              
+              <div id="quiz-content-panel" style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); min-height: 200px; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
+                <!-- Initial start state -->
+                <div id="quiz-start-view" style="text-align: center; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                  <span style="font-size: 3rem; line-height: 1;">🎯</span>
+                  <button id="start-quiz-btn" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.8rem;">Begin Bow Test</button>
+                </div>
+                
+                <!-- Dynamic Question state (populated by app.js) -->
+                <div id="quiz-question-view" style="display: none; flex-direction: column; gap: 0.75rem;">
+                  <span id="quiz-q-num" style="font-size: 0.7rem; font-weight: 700; color: var(--primary-saffron); letter-spacing: 0.5px; text-transform: uppercase;">Question 1 / 5</span>
+                  <h4 id="quiz-q-text" class="title-font" style="color: var(--text-white); font-size: 1.05rem; margin: 0;">Question details...</h4>
+                  <div id="quiz-options-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <!-- Filled dynamically -->
+                  </div>
+                </div>
+
+                <!-- Final result state -->
+                <div id="quiz-result-view" style="display: none; text-align: center; flex-direction: column; gap: 0.75rem; align-items: center;">
+                  <span id="quiz-result-badge" style="font-size: 3.5rem; line-height: 1; margin: 0.25rem 0;">🏆</span>
+                  <h4 id="quiz-result-title" class="title-font" style="color: #ffd700; font-size: 1.2rem; margin: 0;">Archetype Title</h4>
+                  <p id="quiz-result-desc" style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); margin: 0;"></p>
+                  <button id="download-cert-btn" class="suggested-btn" style="font-size: 0.75rem; padding: 0.4rem 0.85rem; margin-top: 0.5rem;">Download Certificate 📜</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: MEDIA PAVILION -->
+      <section id="media-tab" class="view-section">
+        <header class="glass-card">
+          <h2 class="section-title">Media Pavilion</h2>
+          <p class="section-desc">Listen to copyright-free recitations, and watch open-source Creative Commons visualizations of the Ramayana history.</p>
+        </header>
+
+        <div class="media-grid">
+          <!-- Audio Player Block -->
+          <div class="glass-card media-card">
+            <h3 class="title-font glow-text">Vocal Chants & Instrumental Soundscapes</h3>
+            <p class="media-meta-desc">Tune into authentic recordings and procedurally generated synthesizer scales to accompany your study.</p>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700;">Tanpura & Bansuri Procedural Ambient</h4>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Real-time synthesized classical Indian raga.</span>
+                </div>
+                <button id="media-ambient-play-btn" class="sloka-btn">▶</button>
+              </div>
+
+              <!-- Custom Chanting Players -->
+              <div class="custom-player-card" data-audio-src="https://archive.org/download/Valmiki-Ramayana-Sanskrit-Samhita/01_Balakanda_Sarg_1.mp3">
+                <button class="player-play-btn" id="custom-play-1">▶</button>
+                <div class="player-info">
+                  <h4>Valmiki Balakanda Chanting</h4>
+                  <span class="player-subtitle">Sanskrit Samhita (Chapter 1) - MP3 Recitation</span>
+                  <div class="player-progress-track"><div class="player-progress-bar" id="custom-bar-1"></div></div>
+                </div>
+              </div>
+
+              <div class="custom-player-card" data-audio-src="https://archive.org/download/Valmiki-Ramayana-Samhita-Ayodhyakanda/VR-Ayodhyakanda-001.mp3">
+                <button class="player-play-btn" id="custom-play-2">▶</button>
+                <div class="player-info">
+                  <h4>Valmiki Ayodhyakanda Chanting</h4>
+                  <span class="player-subtitle">Sanskrit Samhita (Chapter 1) - MP3 Recitation</span>
+                  <div class="player-progress-track"><div class="player-progress-bar" id="custom-bar-2"></div></div>
+                </div>
+              </div>
+
+              <!-- Shared Hidden Audio Element -->
+              <audio id="custom-media-audio"></audio>
+            </div>
+          </div>
+
+          <!-- Video Embed Block -->
+          <div class="glass-card media-card">
+            <h3 class="title-font glow-text">Visual Chronicles</h3>
+            <p class="media-meta-desc">Watch open-source, Creative Commons animations explaining the epic narratives.</p>
+            
+            <div class="video-container">
+              <!-- Highly compatible MP4 stream for Safari/iOS + WebM fallback -->
+              <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000;" controls poster="https://upload.wikimedia.org/wikipedia/commons/e/ea/Sita_Sings_the_Blues_poster.jpg">
+                <source src="https://archive.org/download/Sita_Sings_the_Blues/Sita_Sings_the_Blues_small.mp4" type="video/mp4">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sita_Sings_the_Blues.webm" type="video/webm">
+                Your browser does not support HTML5 video streaming.
+              </video>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); font-style: italic;">Note: "Sita Sings the Blues" is a Creative Commons animated movie by Nina Paley, hosted on Wikimedia Commons. Direct stream is open-source and free of ads/trackers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: KIDS CORNER -->
+      <section id="kids-tab" class="view-section">
+        <header class="glass-card kids-header" style="background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 215, 0, 0.12)); border-color: rgba(255, 215, 0, 0.35);">
+          <h2 class="section-title glow-text" style="color: #ffd700; font-family: 'Cinzel', serif; font-size: 2.2rem;">✨ Bal Ramayana Kids Corner ✨</h2>
+          <p class="section-desc" style="color: #fff; font-weight: 600;">Welcome, little warriors! Play games and read colorful mini-stories about Sri Rama and the hero monkey Hanuman!</p>
+        </header>
+
+        <div class="media-grid">
+          <!-- Storybook Section -->
+          <div class="glass-card kids-story-card" style="border-color: rgba(255, 215, 0, 0.25); display: flex; flex-direction: column; justify-content: space-between;">
+            <h3 class="title-font" style="color: #ff8c00; font-size: 1.4rem; margin-bottom: 0.5rem; text-align: center;">📖 Playful Hero Tales</h3>
+            
+            <div id="kids-story-container" style="background: rgba(0,0,0,0.4); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 0.75rem; flex-grow: 1; min-height: 290px;">
+              <!-- Cartoon Emoji illustration at top -->
+              <div id="kids-story-cartoon" class="kids-bounce-emoji" style="font-size: 3.5rem; line-height: 1; margin-top: 0.25rem;">🐒</div>
+              
+              <!-- Story Title -->
+              <h4 id="kids-story-title" class="title-font" style="color: #ffd700; font-size: 1.25rem; margin: 0;">Loading stories...</h4>
+              
+              <!-- Story Text -->
+              <p id="kids-story-text" style="font-size: 0.9rem; line-height: 1.55; color: #f4efeb; margin: 0; text-align: justify; text-align-last: center;"></p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+              <button id="kids-story-prev" class="suggested-btn">◀ Previous</button>
+              <span id="kids-story-counter" style="font-size: 0.8rem; font-weight: bold; color: var(--gold-glow); align-self: center;">1 / 5</span>
+              <button id="kids-story-next" class="suggested-btn">Next ▶</button>
+            </div>
+          </div>
+
+          <!-- Kids Mini-Game Arcade Section -->
+          <div class="glass-card kids-game-card" style="border-color: rgba(255, 215, 0, 0.25); display: flex; flex-direction: column; gap: 0.75rem; flex-grow: 1;">
+            <h3 class="title-font" style="color: #ff8c00; font-size: 1.4rem; margin-bottom: 0.25rem; text-align: center;">🎮 Kids Dharma Arcade</h3>
+            
+            <!-- Game Selector Tabs -->
+            <div class="arcade-selector" style="display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 0.25rem; justify-content: center; width: 100%;">
+              <button class="suggested-btn active" data-game="leap" style="font-size: 0.7rem; padding: 0.4rem 0.65rem;">1. Hanuman Leap 🐒</button>
+              <button class="suggested-btn" data-game="arrow" style="font-size: 0.7rem; padding: 0.4rem 0.65rem;">2. Rama's Bow 🏹</button>
+              <button class="suggested-btn" data-game="setu" style="font-size: 0.7rem; padding: 0.4rem 0.65rem;">3. Build Setu 🧱</button>
+              <button class="suggested-btn" data-game="match" style="font-size: 0.7rem; padding: 0.4rem 0.65rem;">4. Virtue Match 🎴</button>
+              <button class="suggested-btn" data-game="catcher" style="font-size: 0.7rem; padding: 0.4rem 0.65rem;">5. Herb Catcher 🌿</button>
+            </div>
+            
+            <p id="kids-game-instruction" style="font-size: 0.75rem; text-align: center; color: var(--text-muted); margin: 0; min-height: 24px;">
+              Help Hanuman fly across the ocean to find Sita. Avoid storm clouds and collect 10 glowing gold stars of values!
+            </p>
+            
+            <div style="position: relative; width: 100%; height: 260px; background: #0c122b; border-radius: 12px; border: 2px solid rgba(255, 215, 0, 0.2); overflow: hidden;">
+              <canvas id="kids-game-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+              
+              <!-- Game Over / Start Overlay -->
+              <div id="kids-game-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 18, 43, 0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; color: #fff;">
+                <h4 id="game-overlay-title" class="title-font" style="color: #ffd700; font-size: 1.3rem; margin: 0; text-shadow: 0 0 10px rgba(255,215,0,0.5);">Hanuman's Epic Flight</h4>
+                <p id="game-overlay-desc" style="font-size: 0.75rem; margin: 0; max-width: 250px; text-align: center; color: var(--text-muted);">Tap / Click screen to fly up. Don't hit the storm clouds!</p>
+                <button id="start-game-btn" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.8rem;">Fly Hanuman! 🐒</button>
+              </div>
+
+              <!-- Score/badge UI -->
+              <div style="position: absolute; top: 10px; left: 10px; font-size: 0.8rem; font-weight: 700; color: #ffd700; text-shadow: 0 0 5px #000; pointer-events: none;">
+                Score: <span id="kids-game-score">0</span> / 10
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main content sections end -->
+
+      <!-- Cinematic Production Footer -->
+      <footer class="cinematic-footer">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+          <div class="footer-links">
+            <span class="footer-brand">A <a href="https://www.sanatana360.com" target="_blank">Sanatana360</a> unit</span>
+            <span class="footer-link-divider">|</span>
+            <span class="footer-gita">Gita: <a href="https://www.gita.sanatana360.com" target="_blank">www.gita.sanatana360.com</a></span>
+          </div>
+          <div class="footer-dharma">
+            <span class="dharma-slogan">Save Dharma, Made with Love towards Dharma 🪔</span>
+          </div>
+          <div class="footer-contact">
+            Contact developer at: <a href="mailto:service@weforyou@gmail.com">service@weforyou@gmail.com</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- AYODHYA DIWALI CELEBRATION OVERLAY -->
+  <div id="diwali-celebration-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(8, 10, 24, 0.95); z-index: 10000; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 2rem; box-sizing: border-box;">
+    <canvas id="diwali-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto;"></canvas>
+    
+    <div style="position: relative; pointer-events: none; max-width: 500px; display: flex; flex-direction: column; gap: 1rem; align-items: center; z-index: 10001;">
+      <span style="font-size: 4rem; line-height: 1;">🪔✨🪔</span>
+      <h2 class="title-font" style="color: #ffd700; font-size: 2.2rem; margin: 0; text-shadow: 0 0 15px rgba(255,215,0,0.5);">The Lights of Ayodhya</h2>
+      <p style="font-size: 0.95rem; line-height: 1.6; color: #f4efeb;">Rama, Sita, and Lakshmana have returned from exile! The entire city of Ayodhya is glowing with lamps to celebrate the victory of truth. Click the sky to launch sparklers!</p>
+      
+      <div style="background: rgba(255,140,0,0.08); border: 1px solid rgba(255,215,0,0.2); padding: 1.25rem; border-radius: 8px; margin: 0.5rem 0;">
+        <h4 style="color: #ff8c00; margin: 0 0 0.5rem 0; font-size: 1rem;" class="title-font">🌟 Character Journey Complete 🌟</h4>
+        <p style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); margin: 0;">You have logged reflections for all 7 chapters of the Ramayana. You have successfully aligned your daily habits with the virtues of the epic!</p>
+      </div>
+
+      <button id="close-diwali-btn" class="btn-primary" style="pointer-events: auto; padding: 0.65rem 1.75rem; font-size: 0.9rem; margin-top: 0.5rem;">Return to Journey</button>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE ANIMATIONS MODAL -->
+  <div class="modal-overlay" id="animation-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn">&times;</button>
+      <h3 class="title-font glow-text" id="modal-animation-title" style="margin-bottom: 1rem; color: var(--gold-glow);">Divine Meditation</h3>
+      
+      <canvas id="animation-canvas" class="animation-canvas"></canvas>
+      
+      <div class="animation-controls">
+        <button id="reset-animation-btn" class="btn-primary" style="margin-right: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Reset Scene</button>
+        <button id="close-animation-btn" class="btn-secondary">Return to Map</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEMATIC LOGIN / SIGNUP MODAL -->
+  <div id="login-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(8, 10, 24, 0.95); z-index: 20000; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; box-sizing: border-box;">
+    <div class="glass-card" style="max-width: 400px; width: 100%; border-color: var(--primary-saffron); padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; text-align: center; position: relative;">
+      <span style="font-size: 3rem; line-height: 1;">🕌</span>
+      <h3 class="title-font" style="color: #ffd700; font-size: 1.6rem; margin: 0; text-shadow: 0 0 10px rgba(255,215,0,0.4);">Create Your Dharma Altar</h3>
+      <p style="font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); margin: 0;">You have been traveling Rama's path for 5 minutes! Create a local altar account to save your reflections, track virtues over time, and unlock character badges.</p>
+      
+      <form id="altar-login-form" style="display: flex; flex-direction: column; gap: 0.75rem; text-align: left;" onsubmit="event.preventDefault();">
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--gold-glow); text-transform: uppercase;">Spiritual Name / Email</label>
+          <input type="text" id="login-username" required style="width: 100%; padding: 0.6rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: #fff; font-size: 0.85rem;" placeholder="e.g. Subha">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--gold-glow); text-transform: uppercase;">Access Password</label>
+          <input type="password" id="login-password" required style="width: 100%; padding: 0.6rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: #fff; font-size: 0.85rem;" placeholder="••••••••">
+        </div>
+        
+        <button type="submit" id="submit-login-btn" class="btn-primary" style="padding: 0.65rem; font-size: 0.85rem; width: 100%; margin-top: 0.5rem; cursor: pointer;">Initialize Altar Account</button>
+      </form>
+      
+      <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 0.25rem;">
+        <a id="skip-login-btn" style="color: var(--text-muted); cursor: pointer; text-decoration: underline;">Skip for now</a>
+        <span style="color: rgba(255,255,255,0.25);">Dharma protects the truthful</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Lotus Sound Console -->
+  <div id="lotus-sound-console" class="lotus-sound-console">
+    <button id="lotus-toggle-btn" class="lotus-btn" title="Toggle Soundscape Console">
+      <span>🪔</span>
+    </button>
+    <div class="sound-popup-panel glass-card">
+      <div class="audio-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span style="font-weight: bold; font-size: 0.75rem; text-transform: uppercase; color: var(--gold-glow); letter-spacing: 0.5px;">Soundscape</span>
+        <span id="ambient-status" style="font-weight: bold; font-size: 0.7rem; color: #666;">Off</span>
+      </div>
+      <button id="toggle-ambient-btn" class="audio-btn" style="width: 100%; border: 1px solid rgba(255,140,0,0.3); border-radius: 6px; padding: 0.45rem; background: rgba(255,140,0,0.1); color: var(--gold-glow); font-weight: bold; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <span>Play Flute & Drone</span>
+      </button>
+      <div style="display: flex; gap: 0.3rem; margin: 0.5rem 0;">
+        <button id="toggle-bells-btn" class="audio-btn" style="flex-grow: 1; padding: 0.35rem; font-size: 0.65rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; color: #fff; cursor: pointer;">🔔 Chimes</button>
+        <button id="toggle-waves-btn" class="audio-btn" style="flex-grow: 1; padding: 0.35rem; font-size: 0.65rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; color: #fff; cursor: pointer;">🌊 Waves</button>
+      </div>
+      <div class="audio-sliders" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+        <div class="slider-group" style="display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; color: var(--text-muted); gap: 0.5rem;">
+          <label style="width: 40px;">Master</label>
+          <input type="range" id="volume-master" min="0" max="1" step="0.05" value="0.5" style="flex-grow: 1; accent-color: var(--primary-saffron); height: 3px;">
+        </div>
+        <div class="slider-group" style="display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; color: var(--text-muted); gap: 0.5rem;">
+          <label style="width: 40px;">Drone</label>
+          <input type="range" id="volume-tanpura" min="0" max="1" step="0.05" value="0.5" style="flex-grow: 1; accent-color: var(--primary-saffron); height: 3px;">
+        </div>
+        <div class="slider-group" style="display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; color: var(--text-muted); gap: 0.5rem;">
+          <label style="width: 40px;">Flute</label>
+          <input type="range" id="volume-flute" min="0" max="1" step="0.05" value="0.5" style="flex-grow: 1; accent-color: var(--primary-saffron); height: 3px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Data and Core Modules -->
+  <script src="journey.js"></script>
+  <script src="slokas.js"></script>
+  <script src="synth.js"></script>
+  <script src="valmiki-ai.js"></script>
+  <script src="dharma-journal.js"></script>
+  <script src="graphics.js"></script>
+  <script src="kids.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
