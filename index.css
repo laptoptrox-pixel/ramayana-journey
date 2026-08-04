@@ -1550,3 +1550,169 @@ body::before {
   text-transform: uppercase;
   font-size: 0.85rem;
 }
+
+/* --- 100% MOBILE RESPONSIVENESS MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  /* 1. Header Capsule stacking & scrolling */
+  .cinematic-header {
+    margin: 0.5rem 0.75rem 0.25rem 0.75rem;
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 16px;
+    align-items: center;
+  }
+
+  .logo-area {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo-text {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+  }
+
+  .celestial-nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.25rem 0;
+  }
+
+  .nav-menu.horizontal {
+    width: max-content;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+
+  .nav-menu.horizontal .nav-link {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .header-altar-badge {
+    display: none !important; /* Hide to save space on mobile */
+  }
+
+  /* 2. Main content height and padding adjustments */
+  #main-content {
+    padding: 1rem 0.75rem;
+    height: calc(100vh - 110px);
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* 3. Interactive SVG map responsiveness - swipe scrollable */
+  .map-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px !important;
+  }
+
+  .map-container svg {
+    min-width: 650px;
+    height: auto;
+    display: block;
+  }
+
+  /* 4. Journey/Timeline layouts */
+  .journey-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .kanda-selection-panel {
+    width: 100% !important;
+  }
+
+  /* 5. Virtue Codex Cards */
+  .virtue-codex-grid, .codex-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .codex-card {
+    height: 320px;
+  }
+
+  /* 6. Kids Corner Arcade and stories */
+  .kids-storybook-grid, .kids-arcade-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  #kids-game-canvas-container {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 400px !important;
+  }
+
+  #kids-game-canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* 7. Chat altar height and elements */
+  .chat-layout {
+    height: calc(100vh - 220px);
+  }
+
+  .chat-input-bar {
+    gap: 0.5rem;
+  }
+
+  .chat-input {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .chat-submit-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .chat-suggested-queries {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    padding-bottom: 0.25rem;
+    gap: 0.5rem;
+  }
+
+  .chat-suggested-queries button {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* 8. Slokas Grid */
+  .slokas-grid, .sloka-list-container {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .sloka-card {
+    padding: 1rem !important;
+  }
+
+  /* 9. Media Pavilion Grid */
+  .media-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 10. Floating sound console scaling */
+  .lotus-sound-console {
+    bottom: 15px;
+    right: 15px;
+    transform: scale(0.85);
+  }
+}
