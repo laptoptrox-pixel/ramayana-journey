@@ -476,39 +476,10 @@
 
   // --- 5. VALMIKI AI CHAT VIEW ---
   function initChatView() {
-    // Developer Shortcut: double-click the Chat header to toggle API key configurations
-    const chatHeader = document.querySelector("#chat-tab header");
-    const apiConfigBar = document.querySelector(".api-config-bar");
-    if (chatHeader && apiConfigBar) {
-      chatHeader.addEventListener("dblclick", function() {
-        apiConfigBar.classList.toggle("visible");
-      });
-    }
-
     const chatContainer = document.getElementById("chat-messages-container");
     const userInput = document.getElementById("chat-user-input");
     const sendBtn = document.getElementById("chat-send-btn");
-    const saveKeyBtn = document.getElementById("save-key-btn");
-    const apiKeyInput = document.getElementById("gemini-key-input");
     const suggestedBtns = document.querySelectorAll(".suggested-btn[data-query]");
-
-    // Retrieve saved key from localStorage or .env file
-    const savedKey = localStorage.getItem("valmiki_gemini_api_key") || import.meta.env.VITE_GEMINI_API_KEY || "";
-    if (savedKey) {
-      apiKeyInput.value = savedKey;
-    }
-
-    // Save key trigger
-    saveKeyBtn.addEventListener("click", function() {
-      const key = apiKeyInput.value.trim();
-      if (key !== "") {
-        localStorage.setItem("valmiki_gemini_api_key", key);
-        alert("API Key saved securely in local storage!");
-      } else {
-        localStorage.removeItem("valmiki_gemini_api_key");
-        alert("API Key removed. Switched to local wisdom offline mode.");
-      }
-    });
 
     // Send Message trigger
     async function handleChatSubmit() {
