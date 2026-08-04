@@ -1,0 +1,14 @@
+{
+  "name": "ramayana-journey",
+  "version": "1.0.0",
+  "description": "An interactive, spiritual single-page application tracing Sri Rama's journey in the Ramayana.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --port 8000 --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
