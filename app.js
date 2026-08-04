@@ -27,15 +27,59 @@
   // --- 1. TABS SYSTEM ---
   function initTabs() {
     const navLinks = document.querySelectorAll(".nav-link");
+    
+    // Mobile Drawer Navigation Elements
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const closeBtn = document.getElementById("mobile-menu-close");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const overlay = document.getElementById("mobile-drawer-overlay");
+
+    function openDrawer() {
+      if (drawer && overlay && toggleBtn) {
+        drawer.classList.add("active");
+        overlay.classList.add("active");
+        toggleBtn.classList.add("open");
+      }
+    }
+
+    function closeDrawer() {
+      if (drawer && overlay && toggleBtn) {
+        drawer.classList.remove("active");
+        overlay.classList.remove("active");
+        toggleBtn.classList.remove("open");
+      }
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        if (drawer.classList.contains("active")) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+    if (overlay) overlay.addEventListener("click", closeDrawer);
+
     navLinks.forEach(link => {
       link.addEventListener("click", function(e) {
         e.preventDefault();
         const targetTab = this.getAttribute("data-tab");
-        if (targetTab === activeTab) return;
+        if (targetTab === activeTab) {
+          closeDrawer();
+          return;
+        }
 
-        // Update Nav Menu UI
-        document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
-        this.classList.add("active");
+        // Update Nav Menu UI on both desktop and mobile menus simultaneously
+        document.querySelectorAll(".nav-link").forEach(l => {
+          if (l.getAttribute("data-tab") === targetTab) {
+            l.classList.add("active");
+          } else {
+            l.classList.remove("active");
+          }
+        });
 
         // Toggle Visibility of Sections
         document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
@@ -50,6 +94,8 @@
         if (window.RamayanaGraphics) {
           window.RamayanaGraphics.stopActive();
         }
+
+        closeDrawer();
       });
     });
   }
