@@ -493,11 +493,8 @@
       // Render Sage thinking
       const thinkingDiv = appendMessage("Sage Valmiki", "Reflecting on ancient scripts...", "sage thinking");
 
-      // Query AI
-      let key = localStorage.getItem("valmiki_gemini_api_key") || "";
-      if (!key) {
-        key = import.meta.env.VITE_GEMINI_API_KEY || "";
-      }
+      // Query AI using Vite environment variables (Baked in at build time)
+      const key = import.meta.env.VITE_GEMINI_API_KEY || "";
 
       if (window.ValmikiAI) {
         const result = await window.ValmikiAI.ask(query, key);
